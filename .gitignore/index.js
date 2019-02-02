@@ -27,3 +27,24 @@ bot.on('message', message => {
         message.channel.send('Ce bot a été crée par **Minaul**')
     }
 })
+
+
+
+bot.on('guildMemberAdd', member =>{
+    let embed = new Discord.RichEmbed()
+        .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name + '\n Vas lire les <#538395478639771649> et prendre tes <#538395482041352192> !' )
+        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
+        .setColor('#00FF00')
+    member.guild.channels.get('538395477058650113').send(embed)
+    member.addRole('538395464546910208')
+ 
+});
+ 
+bot.on('guildMemberRemove', member =>{
+    let embed = new Discord.RichEmbed()
+        .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
+        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
+        .setColor('#B40404')
+    member.guild.channels.get('538395477058650113').send(embed)
+ 
+});
