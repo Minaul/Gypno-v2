@@ -13,7 +13,7 @@ bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
     if (message.content === prefix + "help"){ 
-        message.channel.send('Liste des commandes: \n -G?help');
+        message.channel.send('Liste des commandes: \n -G?help \n -G?owner');
     }
 
     if (message.content === "Salut Gypno"){
@@ -21,3 +21,9 @@ bot.on('message', message => {
         console.log("Commande Salut effectué");
     }
 });
+
+bot.on('message', message => {
+    if (message.content === prefix + "owner"){
+        message.channel.send('Ce bot a été crée par **Minaul**')
+    }
+})
