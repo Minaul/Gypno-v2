@@ -20,6 +20,7 @@ bot.on('message', message => {
             .addBlankField()
             .addField(">help","Affiche ce message.", true)
             .addField(">owner","Affiche le créateur du bot.", true)
+            .addField(">infodiscord","Affiche des infos du Discord", true)
             .addBlankField()
             .addField("__**Modération : **__","Toute des commandes de modération actuelle \n", true)
             .addBlankField()
