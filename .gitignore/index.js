@@ -25,9 +25,10 @@ bot.on('message', message => {
             .addBlankField()
             .addField(">kick","Exclure un utilisateur", true)
             .addField(">ban","Bannir un utilisateur", true)
+            .addField(">clear","Suprimer des messages", true)
             .addBlankField()
             .setColor("0x#48ED6B")
-            .setFooter("𝔾𝕪𝕡𝕟𝕠 𝕧.𝟚 by Minaul")
+            .setFooter("[BETA] 𝔾𝕪𝕡𝕟𝕠 𝕧.𝟚 by Minaul")
         message.channel.sendEmbed(embed);    
     }
 
@@ -43,13 +44,6 @@ bot.on('message', message => {
     
 });
 
-
-/*Owner*/
-bot.on('message', message => {
-    if (message.content === prefix + "owner"){
-        message.channel.send('Ce bot a été crée par **Minaul**')
-    }
-})
 
 
 /*A rejoint*/
@@ -105,3 +99,36 @@ bot.on('message',message =>{
        message.channel.send(":zap:**"+member.user.username + '** a été banni !')
     }
 });
+
+
+/*Clear*/
+
+bot.on("message", message => {
+    if (!message.guild) return
+    let args = message.content.trim().split(/ +/g)
+ 
+    if (args[0].toLowerCase() === prefix + "clear") {
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(":gear: Tu n'as pas la permission. :x:")
+        let count = args[1]
+        if (!count) return message.channel.send(":gear: Veuillez indiquer un nombre de messages à supprimer")
+        if (isNaN(count)) return message.channel.send(":gear: Veuillez indiquer un nombre valide")
+        if (count < 1 || count > 100) return message.channel.send(":gear: Veuillez indiquer un nombre entre 1 et 100")
+        message.channel.bulkDelete(parseInt(count) + 1)
+    }
+});
+
+/*infosDiscord*/
+
+bot.on('message', message => {
+
+    if (message.content === prefix + "infodiscord"){ 
+        var embed = new Discord.RichEmbed()
+        .setDescription("Information du Discord")
+        .addField("Nom du discord", message.guild.name)
+        .addField("Crée le", message.guild.createdAt)
+        .addField("Tu as rejoint le",message.member.joinedAt)
+        .addField("Utilisateurs sur le discord", message.guild.memberCount)
+        .setColor("0x#FFFF00")
+    message.channel.sendEmbed(embed)
+
+    }});
