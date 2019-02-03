@@ -11,16 +11,36 @@ var prefix = ">";
 bot.login(process.env.TOKEN);
 
 
-/*help*/
+/*Message*/
 bot.on('message', message => {
     if (message.content === prefix + "help"){ 
-        message.channel.send('Liste des commandes: \n - >help \n - >owner');
+        var embed = new Discord.RichEmbed()
+            .setTitle("Liste des Commandes")
+            .setDescription("Toute des commandes actuelle \n")
+            .addBlankField()
+            .addField(">help","Affiche ce message.", true)
+            .addField(">owner","Affiche le créateur du bot.", true)
+            .addBlankField()
+            .addField("__**Modération : **__","Toute des commandes de modération actuelle \n", true)
+            .addBlankField()
+            .addField(">kick","Exclure un utilisateur", true)
+            .addField(">ban","Bannir un utilisateur", true)
+            .addBlankField()
+            .setColor("0x#48ED6B")
+            .setFooter("𝔾𝕪𝕡𝕟𝕠 𝕧.𝟚 by Minaul")
+        message.channel.sendEmbed(embed);    
     }
 
     if (message.content === "Salut Gypno"){
         message.reply("Bien le bonjour. :)");
         console.log("Commande Salut effectué");
     }
+
+    if (message.content === prefix + "owner"){
+        message.channel.send('Ce bot a été crée par **Minaul**')
+    }
+
+    
 });
 
 
