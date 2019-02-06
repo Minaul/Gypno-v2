@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-vvar prefix = ">";
+var prefix = ">";
 
  bot.on('ready', function(){
      console.log("Connected");
@@ -9,8 +9,8 @@ vvar prefix = ">";
 
  const activities_list = [
     ">help", 
-    ">owner",
-    ">owner",
+    "Rick & Morty",
+    "Futurama",
     ">help",
     ]; 
 
@@ -20,6 +20,8 @@ bot.on('ready', () => {
         bot.user.setActivity(activities_list[index],{type : 'WATCHING'}); 
     }, 4000); 
 });
+
+
 
 bot.login(process.env.TOKEN);
 
@@ -43,7 +45,7 @@ bot.on('message', message => {
             .addBlankField()
             .setColor("0x#48ED6B")
             .setFooter("[BETA] 𝔾𝕪𝕡𝕟𝕠 𝕧.𝟚 by Minaul")
-        message.channel.sendEmbed(embed);    
+        message.channel.send(embed);    
     }
 
     if (message.content === "Salut Gypno"){
@@ -54,6 +56,8 @@ bot.on('message', message => {
     if (message.content === prefix + "owner"){
         message.channel.send('Ce bot a été crée par **Minaul**')
     }
+
+    
 
     
 });
@@ -146,3 +150,5 @@ bot.on('message', message => {
     message.channel.sendEmbed(embed)
 
     }});
+
+    
