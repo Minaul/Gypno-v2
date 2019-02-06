@@ -1,12 +1,25 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-var prefix = ">";
+vvar prefix = ">";
 
  bot.on('ready', function(){
-     bot.user.setActivity(">help");
      console.log("Connected");
  });
+
+ const activities_list = [
+    ">help", 
+    ">owner",
+    ">owner",
+    ">help",
+    ]; 
+
+bot.on('ready', () => {
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
+        bot.user.setActivity(activities_list[index],{type : 'WATCHING'}); 
+    }, 4000); 
+});
 
 bot.login(process.env.TOKEN);
 
