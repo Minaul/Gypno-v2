@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client()
-const superagent = require("superagent")
+/*const superagent = require("superagent")*/
 var prefix = ">";
 
  bot.on('ready', function(){
@@ -160,8 +160,8 @@ bot.on('message', message => {
 
 
 /*Image random*/
-bot.on('message', async message => {
-/*Chat*/
+/*bot.on('message', async message => {
+
     if (message.content === prefix + "chat") {
         let msg = await message.channel.send("`Génération......`")
 
@@ -182,7 +182,7 @@ bot.on('message', async message => {
            msg.delete()
   
     }
-/*Chien*/
+
     if (message.content === prefix + "chien") {
         let msg = await message.channel.send("`Génération......`")
 
@@ -204,7 +204,7 @@ bot.on('message', async message => {
   
     }
 
-/*Meme*/
+
     if (message.content === prefix + "meme") {
         let msg = await message.channel.send("`Génération......`")
 
@@ -225,4 +225,4 @@ bot.on('message', async message => {
            msg.delete()
     }
 });
-
+*/
