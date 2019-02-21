@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client()
-const superagent = require("superagent")
+/*const superagent = require("superagent")*/
 var prefix = ">";
 
  bot.on('ready', function(){
@@ -160,7 +160,7 @@ bot.on('message', message => {
 
 
 /*Image random*/
-bot.on('message', async message => {
+/*bot.on('message', async message => {
 
     if (message.content === prefix + "chat") {
         let msg = await message.channel.send("`Génération......`")
@@ -226,3 +226,4 @@ bot.on('message', async message => {
     }
 });
 
+*/
